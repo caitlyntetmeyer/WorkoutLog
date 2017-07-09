@@ -1,0 +1,25 @@
+<div class="container">
+
+	<h2>Define a New Workout Type</h2>
+	<p>{{ctrl.message}}</p>
+
+	<label for="def-description">Description of Workout Type:</label>
+	<!-- The directive of ng-model uses ctrl.definition and then adds properties with .desc and .type: -->
+	<textarea class="form-control" ng-model="ctrl.definition.desc" id="def-description" rows="3" ></textarea>
+
+	<label for="def-logtype">When logging this workout type, do you want to go by time, weight, or reps?</label>
+	<!-- The directive of ng-model uses ctrl.definition and then adds properties with .desc and .type: -->
+	<select class="form-control" id="def-logtype" ng-model="ctrl.definition.type">
+		<option>Time</option>
+		<option>Weight</option> 
+		<option>Reps</option>
+	</select>
+
+	<!-- ctrl.saved (with a "d") is implemented below. -->
+	<!-- ng-show will show the html when the value inside is true: -->
+	<p ng-show="ctrl.saved">You created a new workout type!</p>
+	<br>
+	<!-- ctrl.save() (no "d") is implemented: -->
+	<button id="def-save" ng-click="ctrl.save()" class="btn btn-primary">Save</button>
+
+</div> <!-- /.container -->

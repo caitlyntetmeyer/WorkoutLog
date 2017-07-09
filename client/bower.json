@@ -1,0 +1,22 @@
+{
+  "name": "bower.json",
+  "description": "bower.json",
+  "main": "bower.json",
+  "authors": [
+    "Caitlyn Tetmeyer"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/caitlyntetmeyer/caitlyntetmeyer.github.io",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}

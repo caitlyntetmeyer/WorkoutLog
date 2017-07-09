@@ -1,0 +1,26 @@
+{
+  "name": "workoutlog-angular",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "./node_modules/.bin/http-server",
+    "prestart": "npm install",
+    "postinstall": "bower install"
+  },
+  "author": "Caitlyn Tetmeyer",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.8.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "http-server": "^0.10.0"
+  },
+  "dependencies": {
+    "bower": "^1.8.0",
+    "http-server": "^0.9.0"
+  },
+  "description": ""
+}

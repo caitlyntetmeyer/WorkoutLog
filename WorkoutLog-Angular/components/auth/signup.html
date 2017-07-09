@@ -1,0 +1,59 @@
+<!-- Goal #1: Build the UI for signing up -->
+<!-- Goal #2: Build the controller that will handle the view and send data to the services -->
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-4">
+			<h3>Sign Up</h3>
+
+			<p>{{ ctrl.message }}</p> <!-- {{ }} indicates an Angular expression used to display objects and object properties in the view -->
+
+			<!-- Form: -->
+			<form id="new_user" ng-submit="ctrl.submit()">
+			<!-- ng-submit is an Angular directive that tells the Angular framework to listen for this form's onSubmit event. -->
+
+				<!-- Username: -->
+				<p>
+					<label for="username">Username</label>
+					<br>
+					<input type="text" name="username" ng-model="ctrl.user.username" required>
+					<!-- ng-model is an Angular directive used to create 2-way data binding -->
+				</p>
+				<!-- Password: -->
+				<p>
+					<label for="password">Password</label>
+					<br>
+					<input type="password" ng-model="ctrl.user.password" name="password" required>
+					<!-- ng-model is an Angular directive used to create 2-way data binding -->
+				</p>
+				<!-- Submit: -->
+				<input type="submit" id="signup" name="commit" value="Sign Up" class="btn btn-default">
+				<span class="login">
+					Already have an account?
+					<a ui-sref="signin">Log in</a>
+					<!-- ui-sref is how the routing for this application will occur. The views will be injected in index.html where <div ui-view></div> is located. -->
+				</span>
+			</form>
+		</div> <!-- /.col-xs-6 col-xs-offset-4 -->
+	</div> <!-- /.row -->
+</div> <!-- /.container -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

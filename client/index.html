@@ -1,0 +1,166 @@
+<html>
+	 <head>
+	 	<meta charset="UTF-8">
+	 	<title>Workout Log</title>
+	 	<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+	 </head>
+	 <body>
+	 	  <ul class="nav nav-tabs">
+	 	    <li><a href="#home" id="loginout" class="disabled" data-toggle="tab">Login</a>
+	 	      <!--logout too -->
+	 	    </li>
+	 	    <li><a href="#define" class="disabled" data-toggle="tab">Define New Workout Category</a></li>
+	 	    <li><a href="#log" class="disabled" data-toggle="tab">Log a Workout</a></li>
+	 	    <li><a href="#history" class="disabled" data-toggle="tab">View History</a></li>
+	 	    <li><a href="#feed" class="disabled" data-toggle="tab">View Feed</a></li>
+	 	    <!--Welcome portion-->
+	 	    <li a href="#welcome-login" class="disabled" data-toggle="tab"><span id="welcome"></span></li>
+
+	 	    <!-- Hidden link inside the nav bar that will take us to Update Log page -->
+	 	    <a href="#update-log" data-toggle="tab" class="disabled" hidden></a>
+	 	  </ul>
+
+	 	  <div class="container">
+	 	    <div class="tab-content">
+	 	      <div class="tab-pane" id="home">
+	 	        <h2>Workout Log</h2>
+	 	        <div id="forLogin">
+	 	          <!-- have the class build the modals for these http://getbootstrap.com/javascript/#modals -->
+	 	          <button data-toggle="modal" data-target="#login-modal" class="btn btn-primary">Login</button>
+	 	          <button data-toggle="modal" data-target="#signup-modal" class="btn btn-primary">Sign Up</button>
+	 	        </div>
+	 	        <div id="forLogout" style="display:none;">
+	 	          <button class="btn btn-primary">Logout</button>
+	 	        </div>
+	 	      </div>
+
+	 	      <!-- DEFINE -->
+	 	      <div class="tab-pane fade" id="define">
+	 	        <h2>Define a New Workout Category</h2>
+	 	          <label for="def-description">Description</label>
+	 	          <textarea class="form-control" id="def-description" rows="3" ></textarea>
+	 	          <label for="def-logtype">Log work by</label>
+	 	          <select class="form-control" id="def-logtype">
+	 	            <option>Time</option>
+	 	            <option>Weight</option>
+	 	            <option>Reps</option>
+	 	          </select>
+	 	          <br>
+	 	          <button id="def-save" class="btn btn-primary">Save</button>
+	 	          <div id="define-success" class="success1">You added new category!</div>
+	 	          <div id="define-fail" class="fail">Failed to add new category</div>
+	 	          <button id="def-save" class="btn btn-primary">Save</button>
+	 	      </div>
+	 	     
+	 	      <!-- Log -->
+	 	      <div class="tab-pane fade" id="log">
+	 	        <h2>Log</h2>
+	 	          <label>Result</label>
+	 	          <input type="text" class="form-control" id="log-result" />
+	 	          <label for="log-definition">Workout Select:</label>
+	 	         
+
+	 	          <a><span id="delete-category">Delete Category</span></a>          
+	 	          <div id="test3">
+	 	          <select class="form-control" id="log-definition">
+	 	          </select>
+	 	          </div>
+
+	 	          <label for="log-description">Notes:</label>
+	 	          <textarea class="form-control" id="log-description" rows="3" ></textarea>
+	 	          <div id="log-success" class="success1">You logged a new workout!</div>
+	 	          <div id="log-fail" class="fail">Failed to log workout</div>
+	 	          <br>
+	 	          <button id="log-save" class="btn btn-primary">Save</button>
+	 	      </div>
+
+	 	      <div class="tab-pane fade" id="history">
+	 	        <h2>History</h2>
+	 	        <ul class="list-group" id="history-list">
+	 	        </ul>
+	 	      </div>
+
+	 	      <div class="tab-pane" id="feed">
+	 	        <h2>Workout Feed</h2>
+	 	        <ul class="list-group" id="feed-list"></ul>
+	 	        <label>Send A Message</label>
+	 	        <textarea class="form-control" id="msg" rows="3"></textarea>
+	 	        <br>
+	 	        <button id="msg-send" class="btn btn-primary">Send</button>
+	 	      </div>
+	 	    </div>
+
+	 	    <!-- UPDATING A WORKOUT SECTION -->
+	 	    <div class="tab-pane fade" id="update-log">
+                <h2>Log Update</h2>
+                <label>Result</label>
+                <input type="hidden" class="form-control" id="update-id" />
+                <input type="text" class="form-control" id="update-result" />
+                <label>Workout Select:</label>
+                <select class="form-control" id="update-definition"></select>
+                <label>Notes</label>
+                <textarea class="form-control" id="update-description" rows="3"></textarea>
+                <br />
+                <button id="log-update" class="btn btn-primary">Save</button>
+            </div>
+
+
+	 	 <!-- Modals -->
+	 	 <div class="modal fade" id="login-modal" role="dialog">
+	 	   <div class="modal-dialog">
+	 	     <div class="modal-content">
+	 	       <div class="modal-header">
+	 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	 	        <h4 class="modal-title">Login</h4>
+	 	      </div>
+	 	      <div class="modal-body">
+	 	        <div class="alert alert-danger" style="display: none;" role="alert" id="li_error"></div>
+	 	        <label for="li_username">Username:</label>
+	 	        <input class="form-control" id="li_username" />
+	 	        <label for="li_password">Password:</label>
+	 	        <input type="password" class="form-control" id="li_password" />
+	 	      </div>
+	 	      <div class="modal-footer">
+	 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	 	        <button id="login" type="button" class="btn btn-primary">Login</button>
+	 	      </div>
+	 	     </div>
+	 	   </div>
+	 	 </div>
+	 	 <div class="modal fade" id="signup-modal" role="dialog">
+	 	   <div class="modal-dialog">
+	 	     <div class="modal-content">
+	 	       <div class="modal-header">
+	 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	 	        <h4 class="modal-title">Sign Up</h4>
+	 	      </div>
+	 	      <div class="modal-body">
+	 	      <div class="alert alert-danger" role="alert" style="display:none;" id="su_error"></div>
+	 	        <label for="su_username">Username:</label>
+	 	        <input class="form-control" id="su_username" />
+	 	        <label for="su_password">Password:</label>
+	 	        <input type="password" class="form-control" id="su_password" />
+	 	      </div>
+	 	      <div class="modal-footer">
+	 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+	 	        <button id="signup" type="button" class="btn btn-primary">Signup</button>
+	 	      </div>
+	 	     </div>
+	 	   </div>
+	 	 </div>
+	 	</div>
+		
+		<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+	 	<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<script src="./app.js"></script>
+		<script src="./user/auth.js"></script>
+		<script src="./workouts/define.js"></script>
+		<script src="./workouts/log.js"></script>
+	 </body>
+ </html>
+
+
+
+
+ 

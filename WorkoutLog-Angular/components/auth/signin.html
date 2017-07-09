@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-6 col-xs-offset-4">
+			<h3>Sign In</h3>
+
+			<!-- Form: -->
+			<!-- The reason why ctrl is used in the view instead of vm is due to the binding found in the signin.js config. -->
+			<!-- ng-model takes information from the html and attaches it to the vm.user = {} object created in the signin.js controller: -->
+			<form id="new_user" ng-submit="ctrl.login()">
+				<!-- Username Field: -->
+				<p>
+					<label for="username">Username</label>
+					<br>
+					<!-- ng-model takes information from the html and attaches it to the vm.user = {} object created in the signin.js controller: -->
+					<input type="text" name="username" ng-model="ctrl.user.username" required>
+				</p>
+				<!-- Password Field: -->
+				<p>
+					<label for="password">Password</label>
+					<br>
+					<!-- ng-model takes information from the html and attaches it to the vm.user = {} object created in the signin.js controller: -->
+					<input type="password" name="password" ng-model="ctrl.user.password" required>
+				</p>
+				<!-- Submit Button: -->
+				<input type="submit" id="login" name="commit" value="Login" class="btn btn-default">
+
+				<span class="login">
+					Don't have an account?
+					<!-- ui-sref : A directive for linking to a state. -->
+					<a ui-sref="signup">Sign Up</a>
+				</span>
+
+			</form>
+
+		</div> <!-- /.col-xs-6 col-xs-offset-4 -->
+	</div> <!-- /.row -->
+</div> <!-- /.container -->

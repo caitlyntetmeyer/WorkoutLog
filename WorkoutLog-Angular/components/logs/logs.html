@@ -1,0 +1,16 @@
+<!-- This is the HTML for the logs. -->
+<div class="container">
+	<div class="col-sm-12">
+		<h2>Log a Workout</h2>
+		<label>What was the result of your workout? Example: Ran a 5K</label>
+		<input type="text" class="form-control" ng-model="ctrl.log.result"/>
+		<label>Select a Workout Type:</label>
+		<select class="form-control" ng-options="item.description as item.description for item in ctrl.userDefinitions" ng-model='ctrl.log.def'>
+		</select>
+		<label>Workout Notes:</label>
+		<textarea class="form-control" rows="3" ng-model="ctrl.log.desc"></textarea>
+		<p ng-show="ctrl.saved">You logged a workout!</p>
+		<br>
+		<button id="log-save" class="btn btn-primary" ng-click="ctrl.save()">Save</button>
+	</div> <!-- /.col-sm-12 -->
+</div> <!-- /.container -->
